@@ -9,12 +9,12 @@ import * as Select from '@radix-ui/react-select';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { css } from '../../styled-system/css';
-import usePeerConnection from '../hooks/usePeerConnection';
 import { HAMSURANG_PEOPLE } from '../constants';
+import { usePeerContext } from '../context/PeerContext';
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const { peer, connectToPeer } = usePeerConnection();
+  const { peer, connectToPeer } = usePeerContext();
   const [nickName, setNickName] = useState('');
   const [peerId, setPeerId] = useState('');
   const [hostId, setHostId] = useState('');
@@ -79,14 +79,6 @@ const HomePage = () => {
                   </Select.Viewport>
                 </Select.Content>
               </Select.Root>
-              <input
-                type="text"
-                placeholder="Host's Peer ID 입력"
-                value={peerId}
-                onChange={(e) => setPeerId(e.target.value)}
-                required
-                className={inputStyle}
-              />
               <button
                 type="submit"
                 className={buttonStyle}
