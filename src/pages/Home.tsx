@@ -21,10 +21,17 @@ const HomePage = () => {
 
   const handleJoin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (nickName.trim() && peerId.trim()) {
+    if (nickName.trim() && hostId.trim()) {
       connectToPeer(hostId, nickName, () => {
         navigate(`/mogak?nickName=${nickName}&peerId=${peerId}`);
       });
+    }
+  };
+
+  const handleCreate = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (nickName.trim() && peerId.trim()) {
+      navigate(`/mogak?nickName=${nickName}&peerId=${peerId}`);
     }
   };
 
@@ -47,7 +54,7 @@ const HomePage = () => {
             <DialogDescription className={dialogDescriptionStyle}>
               닉네임을 선택하고 방을 만드세요.
             </DialogDescription>
-            <form onSubmit={handleJoin} className={formStyle}>
+            <form onSubmit={handleCreate} className={formStyle}>
               <Select.Root onValueChange={setNickName}>
                 <Select.Trigger
                   className={selectTriggerStyle}
@@ -80,7 +87,11 @@ const HomePage = () => {
                 required
                 className={inputStyle}
               />
-              <button type="submit" className={buttonStyle}>
+              <button
+                type="submit"
+                className={buttonStyle}
+                disabled={!nickName.trim() || !peerId.trim()}
+              >
                 확인
               </button>
             </form>
@@ -129,7 +140,11 @@ const HomePage = () => {
                   </Select.Viewport>
                 </Select.Content>
               </Select.Root>
-              <button type="submit" className={buttonStyle}>
+              <button
+                type="submit"
+                className={buttonStyle}
+                disabled={!nickName.trim() || !hostId.trim()}
+              >
                 확인
               </button>
             </form>
@@ -210,8 +225,10 @@ const buttonStyle = css({
   color: 'white',
   backgroundColor: '#007bff',
   cursor: 'pointer',
-  '&:hover': {
-    backgroundColor: '#0056b3',
+
+  '&:disabled': {
+    backgroundColor: '#cccccc',
+    cursor: 'not-allowed',
   },
 });
 
