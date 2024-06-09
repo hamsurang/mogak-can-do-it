@@ -1,1 +1,18 @@
 @layer reset, base, tokens, recipes, utilities;
+
+@layer reset {
+  html {
+    /* px -> rem: 16px * 0.625 = 10px */
+    font-size: 62.5%;
+  }
+}
+
+@layer base {
+  body {
+    font-size: 1.6rem;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
