@@ -18,7 +18,6 @@ const MogakPage = () => {
 
   return (
     <div className={mogakPageStyle}>
-      <h1>모각코</h1>
       <UserList users={users} />
     </div>
   );
