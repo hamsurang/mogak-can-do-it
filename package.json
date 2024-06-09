@@ -11,6 +11,8 @@
     "prepare": "panda codegen"
   },
   "dependencies": {
+    "@radix-ui/react-avatar": "^1.0.4",
+    "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/themes": "^3.0.5",
     "peerjs": "^1.5.4",
     "react": "19.0.0-rc-cc1ec60d0d-20240607",
