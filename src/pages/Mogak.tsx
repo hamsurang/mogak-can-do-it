@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { UserList } from '../components/UserList';
-import { TimeModal } from '../components/TimeModal';
-import { HAMSURANG_PEOPLE } from '../constants';
 import { css } from '../../styled-system/css';
+import { UserList } from '../components/UserList';
+import { HAMSURANG_PEOPLE } from '../constants';
 
 type User = {
   name: string;
@@ -13,24 +12,13 @@ type User = {
 };
 
 const MogakPage = () => {
-  const [users, setUsers] = useState<User[]>(
+  const [users] = useState<User[]>(
     HAMSURANG_PEOPLE.map((user) => ({ ...user, isConnected: false })),
   );
-
-  const handleTimeSubmit = (startTime: string, endTime: string) => {
-    setUsers(
-      users.map((user) => ({
-        ...user,
-        startTime,
-        endTime,
-      })),
-    );
-  };
 
   return (
     <div className={mogakPageStyle}>
       <h1>모각코</h1>
-      <TimeModal onSubmit={handleTimeSubmit} />
       <UserList users={users} />
     </div>
   );
