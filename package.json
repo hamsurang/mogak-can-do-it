@@ -11,8 +11,10 @@
     "prepare": "panda codegen"
   },
   "dependencies": {
+    "@radix-ui/themes": "^3.0.5",
     "react": "19.0.0-rc-cc1ec60d0d-20240607",
-    "react-dom": "19.0.0-rc-cc1ec60d0d-20240607"
+    "react-dom": "19.0.0-rc-cc1ec60d0d-20240607",
+    "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.40.1",
