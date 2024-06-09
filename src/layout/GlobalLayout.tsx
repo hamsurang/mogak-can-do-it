@@ -1,15 +1,18 @@
 import { Theme } from '@radix-ui/themes';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from 'react-router-dom';
 import { css } from '../../styled-system/css';
-import App from '../App';
 import ErrorPage from '../pages/Error';
-import MogakPage from '../pages/Mogak';
 import HomePage from '../pages/Home';
+import MogakPage from '../pages/Mogak';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <Navigate to="/home" replace />,
     errorElement: <ErrorPage />,
   },
   {
@@ -21,6 +24,10 @@ const router = createBrowserRouter([
     path: '/mogak',
     element: <MogakPage />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: '*',
+    element: <Navigate to="/home" replace />,
   },
 ]);
 
