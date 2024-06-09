@@ -1,7 +1,5 @@
 import * as Avatar from '@radix-ui/react-avatar';
-import { useState } from 'react';
 import { css } from '../../styled-system/css';
-import { HAMSURANG_PEOPLE } from '../constants';
 
 type User = {
   name: string;
@@ -11,12 +9,11 @@ type User = {
   endTime?: string;
 };
 
-export const UserList = () => {
-  // TODO: 상태로 다른 곳에서 관리해야해요.
-  const [users] = useState<User[]>(
-    HAMSURANG_PEOPLE.map((user) => ({ ...user, isConnected: false })),
-  );
+type UserListProps = {
+  users: User[];
+};
 
+export const UserList = ({ users }: UserListProps) => {
   return (
     <ul className={userContainerStyle}>
       {users.map((user) => (
@@ -48,14 +45,14 @@ export const UserList = () => {
 
 const userContainerStyle = css({
   listStyle: 'none',
+  margin: '0 auto',
+  padding: '20px',
   display: 'flex',
   flexDirection: 'column',
   gap: '10px',
   backgroundColor: 'gray.100',
   borderRadius: 'md',
   maxWidth: '400px',
-  margin: '0 auto',
-  padding: '20px',
 });
 
 const userStyle = css({
