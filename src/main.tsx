@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.tsx';
 import ErrorPage from './pages/Error.tsx';
+import HomePage from './pages/Home.tsx';
 import MogakPage from './pages/Mogak.tsx';
 
 const router = createBrowserRouter([
@@ -17,7 +18,12 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: 'about',
+    path: '/home',
+    element: <HomePage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/mogak',
     element: <MogakPage />,
     errorElement: <ErrorPage />,
   },
