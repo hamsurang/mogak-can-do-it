@@ -58,7 +58,7 @@ export const TimeModal = ({ onSubmit }: TimeModalProps) => {
             }}
           >
             <button onClick={handleSubmit} className={buttonStyleGreen}>
-              설정
+              방 만들기
             </button>
           </div>
           <Dialog.Close asChild>

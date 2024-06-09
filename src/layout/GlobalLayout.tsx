@@ -29,7 +29,7 @@ const GlobalLayout = () => (
     <Theme className={sectionStyle}>
       <aside className={asideStyle}>
         <img src="/surang.png" alt="Image 1" className={imageStyle} />
-        {/* <img src="/path/to/image2.png" alt="Image 2" className={imageStyle} /> */}
+        <img src="/title.png" alt="Image 2" className={titleStyle} />
       </aside>
       <main className={mainStyle}>
         <RouterProvider router={router} />
@@ -50,14 +50,17 @@ const outerSectionStyle = css({
 const sectionStyle = css({
   display: 'flex',
   position: 'relative',
+  justifyContent: 'center',
   width: '100%',
-  backgroundColor: 'white',
 });
 
 const mainStyle = css({
   width: '100%',
   maxWidth: '500px',
-  height: 'fit-content',
+  minHeight: '100vh',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
 });
 
 const asideStyle = css({
@@ -72,5 +75,11 @@ const asideStyle = css({
 const imageStyle = css({
   width: '100%',
   maxWidth: '300px',
+  height: 'auto',
+});
+
+const titleStyle = css({
+  width: '100%',
+  maxWidth: '100px',
   height: 'auto',
 });
